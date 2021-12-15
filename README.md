@@ -2,12 +2,12 @@
 
 An unopinionated and configurable linter and style checker for Pug (formerly Jade)
 
-[![build status](https://img.shields.io/travis/ladjs/pug-lint/master.svg)](https://travis-ci.org/ladjs/pug-lint)
+[![build status](https://github.com/ladjs/pug-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/ladjs/pug-lint/actions/workflows/ci.yml)
 [![coverage status](https://img.shields.io/codecov/c/github/ladjs/pug-lint/master.svg)](https://codecov.io/gh/ladjs/pug-lint)
 [![dependency status](https://img.shields.io/david/ladjs/pug-lint.svg)](https://david-dm.org/ladjs/pug-lint)
 [![npm](https://img.shields.io/npm/v/pug-lint.svg)](https://www.npmjs.com/package/pug-lint)
 
-> This project is a maintained fork of pug-lint.
+> This project is a maintained fork of pug-lint. We will continue to support Node LTS.
 
 ## CLI
 

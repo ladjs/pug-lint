@@ -60,7 +60,7 @@
     "yo": "^1.8.4"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 12"
   },
   "homepage": "https://github.com/ladjs/pug-lint",
   "keywords": [
