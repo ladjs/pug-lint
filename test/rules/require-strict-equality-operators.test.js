@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('requireStrictEqualityOperators', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({requireStrictEqualityOperators: true});
+        linter.configure({ requireStrictEqualityOperators: true });
       });
 
       it('should report non-strict equality operator', function () {
@@ -18,7 +18,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'require-strict-equality-operators.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'require-strict-equality-operators.pug'
+        );
 
         assert.equal(result.length, 4);
         assert.equal(result[0].code, 'PUG:LINT_REQUIRESTRICTEQUALITYOPERATORS');

@@ -1,11 +1,12 @@
-var assert = require('assert');
-var path = require('path');
-var configFile = require('../lib/config-file');
-var fixturesPath = path.join(__dirname, 'fixtures/config-file/');
+const assert = require('assert');
+const path = require('path');
+const configFile = require('../lib/config-file');
+
+const fixturesPath = path.join(__dirname, 'fixtures/config-file/');
 
 describe('configFile', function () {
-  var config;
-  var reporter;
+  let config;
+  let reporter;
 
   it('should load config file from specific dot file', function () {
     config = configFile.load(fixturesPath + 'dotfile/.pug-lintrc');

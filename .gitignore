@@ -2,3 +2,13 @@ coverage
 node_modules
 npm-debug.log
 test/*ignore*
+
+
+.DS_Store
+.idea
+Thumbs.db
+tmp/
+temp/
+*.lcov
+.nyc_output
+*.log

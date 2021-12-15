@@ -1,24 +1,26 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('requireLowerCaseAttributes', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({requireLowerCaseAttributes: true});
+        linter.configure({ requireLowerCaseAttributes: true });
       });
 
       it('should report mixed case attributes', function () {
-        assert.equal(linter.checkString('div(Class=\'class\')').length, 1);
+        assert.equal(linter.checkString("div(Class='class')").length, 1);
       });
 
       it('should not report lower case attributes', function () {
-        assert.equal(linter.checkString('diV(class=\'class\')').length, 0);
+        assert.equal(linter.checkString("diV(class='class')").length, 0);
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'require-lower-case-attributes.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'require-lower-case-attributes.pug'
+        );
 
         assert.equal(result.length, 3);
         assert.equal(result[0].code, 'PUG:LINT_REQUIRELOWERCASEATTRIBUTES');
@@ -27,7 +29,10 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report errors found in XML', function () {
-        assert.equal(linter.checkString('doctype xml\ndiv(Class=\'class\')').length, 0);
+        assert.equal(
+          linter.checkString("doctype xml\ndiv(Class='class')").length,
+          0
+        );
       });
     });
   });

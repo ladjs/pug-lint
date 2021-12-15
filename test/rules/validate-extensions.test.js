@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('validateExtensions', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({validateExtensions: true});
+        linter.configure({ validateExtensions: true });
       });
 
       it('should report include no extensions', function () {
@@ -42,7 +42,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-extensions.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-extensions.pug'
+        );
 
         assert.equal(result.length, 5);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATEEXTENSIONS');

@@ -1,26 +1,32 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
-  var fixturePath = fixturesPath + 'validate-attribute-quote-marks.pug';
+  const fixturePath = fixturesPath + 'validate-attribute-quote-marks.pug';
 
   describe('validateAttributeQuoteMarks', function () {
     describe('double', function () {
       before(function () {
-        linter.configure({validateAttributeQuoteMarks: '"'});
+        linter.configure({ validateAttributeQuoteMarks: '"' });
       });
 
       it('should report invalid attribute quote marks', function () {
-        assert.equal(linter.checkString('input(type=\'text\' value!=value)').length, 1);
+        assert.equal(
+          linter.checkString("input(type='text' value!=value)").length,
+          1
+        );
       });
 
       it('should not report valid attribute quote marks', function () {
-        assert.equal(linter.checkString('input(type="text" value!=value)').length, 0);
+        assert.equal(
+          linter.checkString('input(type="text" value!=value)').length,
+          0
+        );
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturePath);
+        const result = linter.checkFile(fixturePath);
 
         assert.equal(result.length, 6);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATEATTRIBUTEQUOTEMARKS');
@@ -36,19 +42,25 @@ function createTest(linter, fixturesPath) {
 
     describe('single', function () {
       before(function () {
-        linter.configure({validateAttributeQuoteMarks: '\''});
+        linter.configure({ validateAttributeQuoteMarks: "'" });
       });
 
       it('should report invalid attribute quote marks', function () {
-        assert.equal(linter.checkString('input(type="text" value!=value)').length, 1);
+        assert.equal(
+          linter.checkString('input(type="text" value!=value)').length,
+          1
+        );
       });
 
       it('should not report valid attribute quote marks', function () {
-        assert.equal(linter.checkString('input(type=\'text\' value!=value)').length, 0);
+        assert.equal(
+          linter.checkString("input(type='text' value!=value)").length,
+          0
+        );
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturePath);
+        const result = linter.checkFile(fixturePath);
 
         assert.equal(result.length, 6);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATEATTRIBUTEQUOTEMARKS');
@@ -64,19 +76,25 @@ function createTest(linter, fixturesPath) {
 
     describe('true', function () {
       before(function () {
-        linter.configure({validateAttributeQuoteMarks: true});
+        linter.configure({ validateAttributeQuoteMarks: true });
       });
 
       it('should report inconsistent attribute quote marks', function () {
-        assert.equal(linter.checkString('input(type="text" value=\'value\')').length, 1);
+        assert.equal(
+          linter.checkString('input(type="text" value=\'value\')').length,
+          1
+        );
       });
 
       it('should not report consistent attribute quote marks', function () {
-        assert.equal(linter.checkString('input(type=\'text\' value=\'value\')').length, 0);
+        assert.equal(
+          linter.checkString("input(type='text' value='value')").length,
+          0
+        );
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturePath);
+        const result = linter.checkFile(fixturePath);
 
         assert.equal(result.length, 6);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATEATTRIBUTEQUOTEMARKS');

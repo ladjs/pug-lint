@@ -1,14 +1,14 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
-  var fixturePath = fixturesPath + 'disallow-specific-tags.pug';
+  const fixturePath = fixturesPath + 'disallow-specific-tags.pug';
 
   describe('disallowSpecificTags', function () {
     describe('string', function () {
       before(function () {
-        linter.configure({disallowSpecificTags: 'B'});
+        linter.configure({ disallowSpecificTags: 'B' });
       });
 
       it('should report disallowed tags', function () {
@@ -20,7 +20,7 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturePath);
+        const result = linter.checkFile(fixturePath);
 
         assert.equal(result.length, 2);
         assert.equal(result[0].code, 'PUG:LINT_DISALLOWSPECIFICTAGS');
@@ -31,7 +31,7 @@ function createTest(linter, fixturesPath) {
 
     describe('array', function () {
       before(function () {
-        linter.configure({disallowSpecificTags: ['b', 'S']});
+        linter.configure({ disallowSpecificTags: ['b', 'S'] });
       });
 
       it('should report disallowed tags', function () {
@@ -43,7 +43,7 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturePath);
+        const result = linter.checkFile(fixturePath);
 
         assert.equal(result.length, 4);
         assert.equal(result[0].code, 'PUG:LINT_DISALLOWSPECIFICTAGS');

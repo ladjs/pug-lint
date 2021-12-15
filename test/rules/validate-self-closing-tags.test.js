@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('validateSelfClosingTags', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({validateSelfClosingTags: true});
+        linter.configure({ validateSelfClosingTags: true });
       });
 
       it('should report unnecessary self closing tags', function () {
@@ -18,7 +18,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report multiple errors found in HTML file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-self-closing-tags--html.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-self-closing-tags--html.pug'
+        );
 
         assert.equal(result.length, 16);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATESELFCLOSINGTAGS');
@@ -27,7 +29,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report any errors in XML file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-self-closing-tags--xml.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-self-closing-tags--xml.pug'
+        );
 
         assert.equal(result.length, 0);
       });

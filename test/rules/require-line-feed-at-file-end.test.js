@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('requireLineFeedAtFileEnd', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({requireLineFeedAtFileEnd: true});
+        linter.configure({ requireLineFeedAtFileEnd: true });
       });
 
       it('should report missing line feed', function () {
@@ -21,7 +21,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report missing line feed at file end', function () {
-        var result = linter.checkFile(fixturesPath + 'require-line-feed-at-file-end--missing.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'require-line-feed-at-file-end--missing.pug'
+        );
 
         assert.equal(result.length, 1);
         assert.equal(result[0].code, 'PUG:LINT_REQUIRELINEFEEDATFILEEND');
@@ -30,7 +32,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report line feed at file end', function () {
-        var result = linter.checkFile(fixturesPath + 'require-line-feed-at-file-end.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'require-line-feed-at-file-end.pug'
+        );
 
         assert.equal(result.length, 0);
       });

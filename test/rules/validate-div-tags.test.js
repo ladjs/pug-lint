@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('validateDivTags', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({validateDivTags: true});
+        linter.configure({ validateDivTags: true });
       });
 
       it('should report unnecessary div tags', function () {
@@ -14,11 +14,13 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report needed div tags', function () {
-        assert.equal(linter.checkString('div(class=\'class\')').length, 0);
+        assert.equal(linter.checkString("div(class='class')").length, 0);
       });
 
       it('should report multiple errors found in HTML file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-div-tags--html.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-div-tags--html.pug'
+        );
 
         assert.equal(result.length, 3);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATEDIVTAGS');
@@ -29,7 +31,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report any errors in XML file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-div-tags--xml.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-div-tags--xml.pug'
+        );
 
         assert.equal(result.length, 0);
       });

@@ -1,18 +1,26 @@
-# pug-lint
+# @ladjs/pug-lint
 
 An unopinionated and configurable linter and style checker for Pug (formerly Jade)
 
-[![build status](https://img.shields.io/travis/pugjs/pug-lint/master.svg)](https://travis-ci.org/pugjs/pug-lint)
-[![coverage status](https://img.shields.io/codecov/c/github/pugjs/pug-lint/master.svg)](https://codecov.io/gh/pugjs/pug-lint)
-[![dependency status](https://img.shields.io/david/pugjs/pug-lint.svg)](https://david-dm.org/pugjs/pug-lint)
+[![build status](https://img.shields.io/travis/ladjs/pug-lint/master.svg)](https://travis-ci.org/ladjs/pug-lint)
+[![coverage status](https://img.shields.io/codecov/c/github/ladjs/pug-lint/master.svg)](https://codecov.io/gh/ladjs/pug-lint)
+[![dependency status](https://img.shields.io/david/ladjs/pug-lint.svg)](https://david-dm.org/ladjs/pug-lint)
 [![npm](https://img.shields.io/npm/v/pug-lint.svg)](https://www.npmjs.com/package/pug-lint)
+
+> This project is a maintained fork of pug-lint.
 
 ## CLI
 
 ### Installation
 
-```shell
-$ npm install -g pug-lint
+[npm][]:
+```sh
+npm install -g @ladjs/pug-lint
+```
+
+[yarn][]:
+```sh
+yarn add -g @ladjs/pug-lint
 ```
 
 ### Usage
@@ -85,7 +93,7 @@ Options and rules can be specified in a `.pug-lintrc`, `.pug-lintrc.js`, or `.pu
 
 Presets have been deprecated in favour of [extending configuration files](#extends).
 
-> Instructions for those wishing to continue to use the rules defined in the deprecated `clock` preset can be found at https://github.com/pugjs/pug-lint/issues/80#issuecomment-223283681
+> Instructions for those wishing to continue to use the rules defined in the deprecated `clock` preset can be found at https://github.com/ladjs/pug-lint/issues/80#issuecomment-223283681
 
 #### extends
 
@@ -110,7 +118,7 @@ The extended configuration provides base rules, which can be overridden by the c
 
 You can also extend configurations using [shareable configuration packages](#shareable-configuration-packages). To do so, be sure to install the configuration package you want from npm and then use the package name, such as:
 
-```shell
+```sh
 $ npm install --save-dev pug-lint-config-clock
 ```
 

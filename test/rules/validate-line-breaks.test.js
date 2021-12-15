@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter) {
   describe('validateLineBreaks', function () {
     describe('CR', function () {
       before(function () {
-        linter.configure({validateLineBreaks: 'CR'});
+        linter.configure({ validateLineBreaks: 'CR' });
       });
 
       it('should not validate strings with less than two lines', function () {
@@ -24,7 +24,7 @@ function createTest(linter) {
 
     describe('LF', function () {
       before(function () {
-        linter.configure({validateLineBreaks: 'LF'});
+        linter.configure({ validateLineBreaks: 'LF' });
       });
 
       it('should report invalid line breaks', function () {
@@ -38,7 +38,7 @@ function createTest(linter) {
 
     describe('CRLF', function () {
       before(function () {
-        linter.configure({validateLineBreaks: 'CRLF'});
+        linter.configure({ validateLineBreaks: 'CRLF' });
       });
 
       it('should report invalid line breaks', function () {

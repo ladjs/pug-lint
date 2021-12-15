@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath, test) {
   describe('disallowLegacyMixinCall', function () {
     describe(true, function () {
       before(function () {
-        linter.configure({disallowLegacyMixinCall: true});
+        linter.configure({ disallowLegacyMixinCall: true });
       });
 
       it('should report legacy mixin call', function () {
@@ -25,7 +25,9 @@ function createTest(linter, fixturesPath, test) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'disallow-legacy-mixin-call.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'disallow-legacy-mixin-call.pug'
+        );
 
         assert.equal(result.length, 2);
         assert.equal(result[0].code, 'PUG:LINT_DISALLOWLEGACYMIXINCALL');

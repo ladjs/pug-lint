@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath, test) {
   describe('validateTemplateString', function () {
     describe('variable', function () {
       before(function () {
-        linter.configure({validateTemplateString: ['variable']});
+        linter.configure({ validateTemplateString: ['variable'] });
       });
 
       it('should report unnecessary template string', function () {
@@ -19,7 +19,9 @@ function createTest(linter, fixturesPath, test) {
       });
 
       it('should report multiple errors found in Pug file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-template-string.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-template-string.pug'
+        );
 
         assert.equal(result.length, 3);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATETEMPLATESTRING');
@@ -30,7 +32,7 @@ function createTest(linter, fixturesPath, test) {
 
     describe('string', function () {
       before(function () {
-        linter.configure({validateTemplateString: ['string']});
+        linter.configure({ validateTemplateString: ['string'] });
       });
 
       it('should report unnecessary template string', function () {
@@ -43,7 +45,9 @@ function createTest(linter, fixturesPath, test) {
       });
 
       it('should report multiple errors found in Pug file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-template-string.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-template-string.pug'
+        );
 
         assert.equal(result.length, 3);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATETEMPLATESTRING');
@@ -54,7 +58,7 @@ function createTest(linter, fixturesPath, test) {
 
     describe('concatenation', function () {
       before(function () {
-        linter.configure({validateTemplateString: ['concatenation']});
+        linter.configure({ validateTemplateString: ['concatenation'] });
       });
 
       it('should report unnecessary template string concatenation', function () {
@@ -71,7 +75,9 @@ function createTest(linter, fixturesPath, test) {
       });
 
       it('should report multiple errors found in Pug file', function () {
-        var result = linter.checkFile(fixturesPath + 'validate-template-string.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'validate-template-string.pug'
+        );
 
         assert.equal(result.length, 3);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATETEMPLATESTRING');
@@ -82,7 +88,7 @@ function createTest(linter, fixturesPath, test) {
 
     describe('true', function () {
       before(function () {
-        linter.configure({validateTemplateString: true});
+        linter.configure({ validateTemplateString: true });
       });
 
       it('should enable all subrules', function () {

@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('maximumNumberOfLines', function () {
     describe('int', function () {
       before(function () {
-        linter.configure({maximumNumberOfLines: 3});
+        linter.configure({ maximumNumberOfLines: 3 });
       });
 
       it('should report excessive number of lines', function () {
@@ -18,7 +18,9 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'maximum-number-of-lines.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'maximum-number-of-lines.pug'
+        );
 
         assert.equal(result.length, 1);
         assert.equal(result[0].code, 'PUG:LINT_MAXIMUMNUMBEROFLINES');

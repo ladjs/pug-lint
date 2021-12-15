@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath, test) {
   describe('disallowTemplateString', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({disallowTemplateString: true});
+        linter.configure({ disallowTemplateString: true });
       });
 
       it('should report template strings', function () {
@@ -22,7 +22,9 @@ function createTest(linter, fixturesPath, test) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'disallow-template-string.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'disallow-template-string.pug'
+        );
 
         assert.equal(result.length, 1);
         assert.equal(result[0].code, 'PUG:LINT_DISALLOWTEMPLATESTRING');
@@ -33,7 +35,7 @@ function createTest(linter, fixturesPath, test) {
 
     describe('all', function () {
       before(function () {
-        linter.configure({disallowTemplateString: 'all'});
+        linter.configure({ disallowTemplateString: 'all' });
       });
 
       it('should report template strings', function () {
@@ -42,7 +44,9 @@ function createTest(linter, fixturesPath, test) {
         test('!= String.raw`tagged`', 1, 14);
         test('- `abc`');
 
-        var result = linter.checkString('= `${title} text` + `text ${translate(title)}`');
+        const result = linter.checkString(
+          '= `${title} text` + `text ${translate(title)}`'
+        );
         assert.equal(result.length, 2);
         assert.equal(result[0].line, 1);
         assert.equal(result[0].column, 3);
@@ -55,7 +59,9 @@ function createTest(linter, fixturesPath, test) {
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'disallow-template-string.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'disallow-template-string.pug'
+        );
 
         assert.equal(result.length, 5);
         assert.equal(result[0].code, 'PUG:LINT_DISALLOWTEMPLATESTRING');

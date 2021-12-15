@@ -1,12 +1,12 @@
 module.exports = createTest;
 
-var assert = require('assert');
+const assert = require('assert');
 
 function createTest(linter, fixturesPath) {
   describe('disallowClassLiterals', function () {
     describe('true', function () {
       before(function () {
-        linter.configure({disallowClassLiterals: true});
+        linter.configure({ disallowClassLiterals: true });
       });
 
       it('should report class literal', function () {
@@ -14,11 +14,13 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report class attribute', function () {
-        assert.equal(linter.checkString('div(class=\'class\')').length, 0);
+        assert.equal(linter.checkString("div(class='class')").length, 0);
       });
 
       it('should report multiple errors found in file', function () {
-        var result = linter.checkFile(fixturesPath + 'disallow-class-literals.pug');
+        const result = linter.checkFile(
+          fixturesPath + 'disallow-class-literals.pug'
+        );
 
         assert.equal(result.length, 3);
         assert.equal(result[0].code, 'PUG:LINT_DISALLOWCLASSLITERALS');
