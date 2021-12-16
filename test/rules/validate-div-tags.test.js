@@ -14,7 +14,7 @@ function createTest(linter, fixturesPath) {
       });
 
       it('should not report needed div tags', function () {
-        assert.equal(linter.checkString("div(class='class')").length, 0);
+        assert.equal(linter.checkString("div(class='class').class").length, 0);
       });
 
       it('should report multiple errors found in HTML file', function () {
@@ -22,12 +22,11 @@ function createTest(linter, fixturesPath) {
           fixturesPath + 'validate-div-tags--html.pug'
         );
 
-        assert.equal(result.length, 3);
+        assert.equal(result.length, 2);
         assert.equal(result[0].code, 'PUG:LINT_VALIDATEDIVTAGS');
         assert.equal(result[0].line, 8);
         assert.equal(result[0].column, 1);
         assert.equal(result[1].line, 9);
-        assert.equal(result[2].line, 10);
       });
 
       it('should not report any errors in XML file', function () {
