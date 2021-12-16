@@ -122,6 +122,7 @@
   "license": "ISC",
   "main": "./lib/linter",
   "publishConfig": {
+    "access": "public",
     "registry": "http://registry.npmjs.org"
   },
   "repository": {
