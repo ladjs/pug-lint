@@ -13,12 +13,14 @@ An unopinionated and configurable linter and style checker for Pug (formerly Jad
 
 ### Installation
 
-[npm][]:
+\[npm]\[]:
+
 ```sh
 npm install -g @ladjs/pug-lint
 ```
 
-[yarn][]:
+\[yarn]\[]:
+
 ```sh
 yarn add -g @ladjs/pug-lint
 ```
@@ -31,10 +33,10 @@ $ pug-lint [options] <file ...>
 
 #### Options
 
-* `-h, --help`: output usage information
-* `-V, --version`: output the version number
-* `-c, --config <path>`: [configuration file](#configuration-file) path
-* `-r, --reporter <reporter>`: error reporter; console - default, inline
+*   `-h, --help`: output usage information
+*   `-V, --version`: output the version number
+*   `-c, --config <path>`: [configuration file](#configuration-file) path
+*   `-r, --reporter <reporter>`: error reporter; console - default, inline
 
 ## Editor integration
 
@@ -59,19 +61,15 @@ pug-lint is part of [syntastic](https://github.com/scrooloose/syntastic).
 If you are using [vim-plug](https://github.com/junegunn/vim-plug) to manage your
 Vim plugins (recommended), you can do:
 
-```
-" In your ~/.vimrc
-Plug 'scrooloose/syntastic'
-" Then run these commands
-:source %
-:PlugInstall
-```
+    " In your ~/.vimrc
+    Plug 'scrooloose/syntastic'
+    " Then run these commands
+    :source %
+    :PlugInstall
 
 Then to turn the pug linter on, you will need this line in your `.vimrc`.
 
-```
-let g:syntastic_pug_checkers = ['pug_lint']
-```
+    let g:syntastic_pug_checkers = ['pug_lint']
 
 ## Build system integration
 
@@ -103,9 +101,9 @@ If you want to extend a specific configuration file, you can use the `extends` p
 
 Configurations can be extended by using:
 
-1. JSON file
-2. JS file
-3. [Shareable configuration package](#shareable-configuration-packages)
+1.  JSON file
+2.  JS file
+3.  [Shareable configuration package](#shareable-configuration-packages)
 
 The extended configuration provides base rules, which can be overridden by the configuration that references it. For example:
 

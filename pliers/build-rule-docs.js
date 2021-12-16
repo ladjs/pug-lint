@@ -14,6 +14,7 @@ function createTask(pliers) {
       })
       .join('\n');
 
+    // eslint-disable-next-line node/prefer-promises/fs
     fs.writeFile(
       path.join(__dirname, '../docs/rules.md'),
       concatenatedDocs,

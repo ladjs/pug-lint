@@ -157,10 +157,17 @@
       "generators/*-templates/**"
     ],
     "rules": {
-      "capitalized-comments": "off",
-      "unicorn/no-array-method-this-argument": "off",
-      "unicorn/no-this-assignment": "off",
-      "prefer-destructuring": "off"
-    }
+      "capitalized-comments": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "test/**/*.js"
+        ],
+        "rules": {
+          "no-template-curly-in-string": "off"
+        }
+      }
+    ]
   }
 }

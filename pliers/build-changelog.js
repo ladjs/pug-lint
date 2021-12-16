@@ -60,9 +60,7 @@ function createTask(pliers) {
         );
 
         if (changes.length > 0) {
-          content.push('### Highlights');
-          content.push.apply(content, changes);
-          content.push('');
+          content.push(['### Highlights', ...changes, '']);
         }
 
         content.push(
@@ -86,6 +84,7 @@ function createTask(pliers) {
 
       pliers.logger.debug('Building CHANGELOG for ' + currentVersion);
 
+      // eslint-disable-next-line node/prefer-promises/fs
       fs.writeFile(filePath, content.join('\n'), function (err) {
         if (err) {
           pliers.logger.error('Failed to build CHANGELOG');

@@ -2,21 +2,24 @@
 
 Thanks for wanting to contribute! This document describes some points about the contribution process for pug-lint.
 
-1. [Maintainers](#maintainers)
-1. [Pull requests](#pull-requests)
-  * [Before submitting a PR](#before-submitting-a-pr)
-  * [Why did you close my PR or Issue?](#why-did-you-close-my-pull-request-or-issue)
-  * [PR/Issue closing criteria](#prissue-closing-criteria)
-1. [Filing bugs](#filing-bugs)
-1. [Proposing features](#proposing-features)
-1. [Implementing features](#implementing-features)
-1. [Setting up your environment](#setting-up-your-environment)
-1. [Commit message format](#commit-message-format)
+1.  [Maintainers](#maintainers)
+2.  [Pull requests](#pull-requests)
+
+*   [Before submitting a PR](#before-submitting-a-pr)
+*   [Why did you close my PR or Issue?](#why-did-you-close-my-pull-request-or-issue)
+*   [PR/Issue closing criteria](#prissue-closing-criteria)
+
+1.  [Filing bugs](#filing-bugs)
+2.  [Proposing features](#proposing-features)
+3.  [Implementing features](#implementing-features)
+4.  [Setting up your environment](#setting-up-your-environment)
+5.  [Commit message format](#commit-message-format)
 
 ## Maintainers
 
 The maintainers of the project are:
- * Ben Edwards (@benedfit)
+
+*   Ben Edwards (@benedfit)
 
 The project is being developed by the community. Maintainers merge pull-requests and fix critical bugs. All other features and patches are welcomed to be implemented by community members.
 
@@ -26,9 +29,9 @@ If you fixed or added something useful to the project, you can send a pull-reque
 
 ### Before submitting a PR
 
-1. Please review our suggested [commit message format](#commit-message-format).
-1. Make sure you have tests for your modifications (we use [Mocha](http://mochajs.org/) and [Assert](https://nodejs.org/api/assert.html)).
-1. Run `npm test` locally to catch any JSHint and JSCS errors, and to confirm that 100% code coverage has been maintained.
+1.  Please review our suggested [commit message format](#commit-message-format).
+2.  Make sure you have tests for your modifications (we use [Mocha](http://mochajs.org/) and [Assert](https://nodejs.org/api/assert.html)).
+3.  Run `npm test` locally to catch any JSHint and JSCS errors, and to confirm that 100% code coverage has been maintained.
 
 ### Why did you close my pull request or issue?
 
@@ -38,12 +41,13 @@ Nothing is worse than a project with hundreds of stale issues. To keep things or
 
 We'll close your PR or issue if:
 
-1. It's a duplicate of an existing issue
-1. Outside of the style-driven scope of the project
-1. You are unresponsive after a few days
-1. The bug is not reproducible
-1. The feature request introduces too much complexity (or too many edge cases) to the tool
-  * We weigh a request's complexity with the value it brings to the community.
+1.  It's a duplicate of an existing issue
+2.  Outside of the style-driven scope of the project
+3.  You are unresponsive after a few days
+4.  The bug is not reproducible
+5.  The feature request introduces too much complexity (or too many edge cases) to the tool
+
+*   We weigh a request's complexity with the value it brings to the community.
 
 Please do not take offence if your ticket is closed. We're only trying to keep the number of issues manageable.
 
@@ -55,11 +59,11 @@ When it comes to bugs, the more details you provide, the easier it is to reprodu
 
 Some helpful points to provide (if you can):
 
-1. A failing test would be amazing
-1. Code snippets that make pug-lint exhibit the issue
-1. The version of pug-lint that you're using
-1. Your operating system (Windows, Mac, or Linux)
-1. Screen-shots
+1.  A failing test would be amazing
+2.  Code snippets that make pug-lint exhibit the issue
+3.  The version of pug-lint that you're using
+4.  Your operating system (Windows, Mac, or Linux)
+5.  Screen-shots
 
 Unfortunately, sometimes a bug can only be reproduced in your project or in your environment, so the maintainers cannot reproduce it. In this case we welcome you to try fixing the bug; we'll be more than happy to take a look at (and possibly incorporate) the fix.
 
@@ -77,18 +81,21 @@ If you cannot implement the feature, but you feel that it would be helpful to ot
 
 ## Setting up your environment
 
-1. Fork the repository
-1. Clone your fork to your local machine
-1. Run `npm install` in your local fork
-1. Create a new branch for your fix:
-  * For bug fixes: `git checkout -b bug/my-fix-branch master`
-  * For feature requests:  `git checkout -b feature/my-feature-branch master`
-1. Implement your bug fix or feature request
-1. Implement the tests for your fix or feature
-1. Run `npm test` frequently to find stylistic errors, and to ensure 100% code coverage is maintained, before issuing a PR
-1. Add any appropriate documentation to `README.md`
-1. Commit your code with a commit message that follows our [commit message format](#commit-message-format)
-  * If you don't feel comfortable with that format, no worries, we'll fix up your commit after merging your PR.
+1.  Fork the repository
+2.  Clone your fork to your local machine
+3.  Run `npm install` in your local fork
+4.  Create a new branch for your fix:
+
+*   For bug fixes: `git checkout -b bug/my-fix-branch master`
+*   For feature requests:  `git checkout -b feature/my-feature-branch master`
+
+1.  Implement your bug fix or feature request
+2.  Implement the tests for your fix or feature
+3.  Run `npm test` frequently to find stylistic errors, and to ensure 100% code coverage is maintained, before issuing a PR
+4.  Add any appropriate documentation to `README.md`
+5.  Commit your code with a commit message that follows our [commit message format](#commit-message-format)
+
+*   If you don't feel comfortable with that format, no worries, we'll fix up your commit after merging your PR.
 
 ## Commit message format
 
@@ -96,22 +103,20 @@ We adhere to the [jQuery commit message](http://contribute.jquery.org/commits-an
 
 This format can be achieved via:
 
-* `git commit` to open your editor to create a multi-line commit message
+*   `git commit` to open your editor to create a multi-line commit message
 
-```
-Short message
-<emptyline>
-Long description (if useful)
-<emptyline>
-Closes gh-<pullRequestNumber>
-Fixes #<issueNumber>
-```
+<!---->
+
+    Short message
+    <emptyline>
+    Long description (if useful)
+    <emptyline>
+    Closes gh-<pullRequestNumber>
+    Fixes #<issueNumber>
 
 Example:
 
-```
-Output errors regardless of verbose flag
+    Output errors regardless of verbose flag
 
-Closes gh-31 - pull request
-Fixes #26 - issue
-```
+    Closes gh-31 - pull request
+    Fixes #26 - issue

@@ -3,7 +3,8 @@ const assert = require('assert');
 const bin = require.resolve('../bin/pug-lint');
 const fs = require('fs');
 const path = require('path');
-const spawn = require('child_process').spawn;
+const process = require('process');
+const { spawn } = require('child_process');
 
 const fixturesPath = path.join(__dirname, 'fixtures/');
 const fixturesRelativePath = './test/fixtures/';
@@ -11,7 +12,7 @@ const packageDetails = require('../package.json');
 
 describe('cli', function () {
   function run(args, cb) {
-    const command = [bin].concat(args);
+    const command = [bin, ...args];
     let stdout = '';
     let stderr = '';
     const node = process.execPath;

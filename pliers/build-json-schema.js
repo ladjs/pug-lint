@@ -20,6 +20,7 @@ function createTask(pliers) {
       props[rule.name] = schema;
     }
 
+    // eslint-disable-next-line node/prefer-promises/fs
     fs.writeFile(
       path.join(__dirname, '../schemas/pug-lintrc-schema.json'),
       JSON.stringify(fullSchema, null, '    '),

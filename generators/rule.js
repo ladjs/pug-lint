@@ -4,8 +4,8 @@ const camelCase = require('camel-case');
 const generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
-  constructor() {
-    Reflect.apply(generators.Base, this, arguments);
+  constructor(...args) {
+    Reflect.apply(generators.Base, this, args);
 
     this.destinationRoot(path.resolve(__dirname, '..'));
     this.sourceRoot(path.join(__dirname, 'rule-templates'));

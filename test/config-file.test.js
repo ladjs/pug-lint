@@ -11,37 +11,37 @@ describe('configFile', function () {
   it('should load config file from specific dot file', function () {
     config = configFile.load(fixturesPath + 'dotfile/.pug-lintrc');
 
-    assert.equal(config.hasOwnProperty('disallowBlockExpansion'), true, config);
+    assert.equal(Boolean(config.disallowBlockExpansion), true, config);
   });
 
   it('should load config file from specified JavaScript file', function () {
     config = configFile.load(fixturesPath + 'js/.pug-lintrc.js');
 
-    assert.equal(config.hasOwnProperty('disallowBlockExpansion'), true, config);
+    assert.equal(Boolean(config.disallowBlockExpansion), true, config);
   });
 
   it('should load config file from specified JSON file', function () {
     config = configFile.load(fixturesPath + 'json/.pug-lintrc.json');
 
-    assert.equal(config.hasOwnProperty('disallowBlockExpansion'), true, config);
+    assert.equal(Boolean(config.disallowBlockExpansion), true, config);
   });
 
   it('should load config from dot file in working directory', function () {
     config = configFile.load(null, fixturesPath + 'dotfile');
 
-    assert.equal(config.hasOwnProperty('disallowBlockExpansion'), true, config);
+    assert.equal(Boolean(config.disallowBlockExpansion), true, config);
   });
 
   it('should load config from JSON file in working directory', function () {
     config = configFile.load(null, fixturesPath + 'json');
 
-    assert.equal(config.hasOwnProperty('disallowBlockExpansion'), true, config);
+    assert.equal(Boolean(config.disallowBlockExpansion), true, config);
   });
 
   it('should load config from package.json in working directory', function () {
     config = configFile.load(null, fixturesPath + 'package');
 
-    assert.equal(config.hasOwnProperty('disallowBlockExpansion'), true, config);
+    assert.equal(Boolean(config.disallowBlockExpansion), true, config);
   });
 
   it('should load config from home directory if working directory is empty', function () {

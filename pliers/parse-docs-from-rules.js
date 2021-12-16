@@ -11,7 +11,7 @@ function parseDocsFromRules(pliers) {
 
   for (const file of glob.sync(rulesPattern)) {
     const source = fs.readFileSync(file, 'utf8');
-    var hasDocs;
+    let hasDocs;
 
     docco.parse(file, source).map(function (section) {
       if (!hasDocs && section.docsText) {
