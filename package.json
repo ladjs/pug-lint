@@ -15,7 +15,7 @@
     "commander": "^2.9.0",
     "css-selector-parser": "^1.1.0",
     "find-line-column": "^0.5.2",
-    "glob": "^7.0.3",
+    "glob": "^9.0.0",
     "minimatch": "^3.0.3",
     "path-is-absolute": "^1.0.0",
     "pug-attrs": "^2.0.4",
